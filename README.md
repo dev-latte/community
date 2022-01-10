@@ -16,8 +16,9 @@ react
 1. create-react-app  
 2. styled-components (npm i styled-components)  
 3. react-icons (npm i react-icons)  
+4. react-router-dom (npm i react-router-dom)  
 
-Database
+Database & Twitter Authentication
 - firebase (npm install firebase)
 
 ## 2. github 규칙
