@@ -1,70 +1,37 @@
-# Getting Started with Create React App
+# RPG 시스템을 반영한 웹 어플리케이션
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 1. 개요
+RPG 시스템을 반영한 웹 커뮤니티 작성을 목표로 한다.
 
-## Available Scripts
+### 1) 기능
+- Twitter 로그인
+- 상점 (구매 / 판매 / 선물)
+- 랜덤뽑기 (등급 C ~ SSS)
+- 아이템 조합, 강화 기능
+- 캐릭터 스테이터스 (스텟포인트)
+- 캐릭터 아이템 착용 (무기 / 방어구 / 악세서리)
 
-In the project directory, you can run:
+## 2. 사용 기술 및 라이브러리
+react  
+1. create-react-app  
+2. styled-components (npm i styled-components)  
+3. react-icons (npm i react-icons)  
 
-### `npm start`
+Database
+- firebase (npm install firebase)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 2. github 규칙
+1. branch 네이밍 규칙 : "수정항목_구체적내용"  
+`예) fix_styling_todolist_component` 
+2. commit 메시지 규칙 : "수정항목 > 구체적인내용 - 추가설명"  
+`예) add > Function of Insert Todo item`  
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+[표1] 구체적인 수정 항목
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+|항목|내용|
+|------|---|
+|add|기능, 환경설정 등 새로운 내용이 추가되었을 때에 사용|
+|modified|기능, 환경설정 등의 내용이 변경되었을 때에 사용|
+|styling|디자인 및 스타일 설정 및 변경 시에 사용|
+|fix|버그 수정 관련 내용에 사용|
+|test|테스트 케이스 추가 및 유닛테스트 추가 등 테스트 관련 내용에 사용|
