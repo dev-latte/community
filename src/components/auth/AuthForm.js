@@ -6,10 +6,10 @@ const AuthFormBlock = styled.div`
     text-align: center;
 `;
 
-const AuthForm = () => {
+const AuthForm = ({member, onClickLogin}) => {
     return (
         <AuthFormBlock>
-            <Button cyan fullWidth>Authentication</Button>
+            <Button cyan fullWidth onClick={onClickLogin}>{member ? "Authentication" : "Guest visit"}</Button>
         </AuthFormBlock>
     );
 }

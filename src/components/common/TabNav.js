@@ -33,12 +33,12 @@ const TabNavBlock = styled.nav`
     }
 `;
 
-const TabNav = () => {
+const TabNav = ({member, onClick}) => {
     return (
         <TabNavBlock>
             <ul>
-                <li><Link to="#a" className="on">MEMBER</Link></li>
-                <li><Link to="#a">GUEST</Link></li>
+                <li><Link to="#" className={member ? "on" : ""} onClick={onClick}>MEMBER</Link></li>
+                <li><Link to="#" className={!member ? "on" : ""} onClick={onClick}>GUEST</Link></li>
             </ul>
         </TabNavBlock>
     );
