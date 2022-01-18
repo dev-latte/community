@@ -3,21 +3,21 @@ import { auth } from './FirebaseInstance';
 
 import { useEffect, useState } from 'react';
 import AppRouter from './pages/AppRouter';
+import LoginPage from './pages/LoginPage';
 
 const App = () => {
   const [init, setInit] = useState(false);
-  const [userObj, setUserObj] = useState({});
+  const [userObj, setUserObj] = useState(null);
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
+      console.log('user>> ',user, Boolean(userObj));
       if(user) {
-        console.log(user);
         setUserObj({
           displayName: user.displayName,
           screenName: user.reloadUserInfo.screenName,
           photoURL: user.photoURL,
-          uid: user.uid,
-          updateProfile: (args) => user.updateProfile(args)
+          uid: user.uid
         });
         setInit(true);
       } else {
@@ -26,27 +26,15 @@ const App = () => {
     });
   }, []);
 
-  const refreshUser = () => {
-    const user = auth.currentUser;
-    setUserObj({
-      displayName: user.displayName,
-      screenName: user.reloadUserInfo.screenName,
-      photoURL: user.photoURL,
-      uid: user.uid,
-      updateProfile: (args) => user.updateProfile(args)
-    });
-  };
-
   return (
     <>
       {
         init
         ? <AppRouter 
             userObj={userObj} 
-            refreshUser={refreshUser}
             isLoggedIn={Boolean(userObj)}
           />
-        : <>로딩중...</>
+        : <LoginPage/>
       }
     </>
 

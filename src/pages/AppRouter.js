@@ -1,12 +1,13 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import LoginPage from "./LoginPage";
+import Main from "./Main";
 
-const AppRouter = ({userObj, isLoggedIn, refreshUser}) => {
+const AppRouter = ({userObj, isLoggedIn}) => {
+    console.log(isLoggedIn);
     return (
         <Routes>
-            { isLoggedIn && 
-                <Route path="/" element={ <LoginPage/>}/> 
+            { isLoggedIn 
+                && <Route path="/" element={<Main userObj={userObj}/>}/>
             }
         </Routes>
     );

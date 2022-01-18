@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { signInWithPopup, TwitterAuthProvider } from "firebase/auth";
+import { signInWithPopup } from "firebase/auth";
 import styled from "styled-components";
 import AuthForm from "../components/auth/AuthForm";
 import AuthTemplate from "../components/auth/AuthTemplate";
 import TabNav from "../components/common/TabNav";
 import { auth, provider } from "../FirebaseInstance";
+import { addMemberInformation } from "../components/api/firebaseAPI";
 
 const LoginFormBox = styled.form`
     width: 360px;
@@ -31,22 +32,21 @@ const LoginPage = () => {
 
     const onSubmitTwitterLogin = (e) => {
         e.preventDefault();
-
         signInWithPopup(auth, provider)
-          .then((result) => {
-              // 로그인 성공
-            // const credential = TwitterAuthProvider.credentialFromResult(result);
-            // const token = credential.accessToken;
-            // const secret = credential.secret;
-        
-            // const user = result.user;
-            // console.log(credential);
-            console.log(result);
-  
+          .then((response) => {
+            const user = response.user;
+            const data = {
+                displayName: user.displayName,
+                photoURL: user.photoURL,
+                screenName: user.reloadUserInfo.screenName,
+                uid: user.uid
+            }
+            addMemberInformation('memberList', user.uid, data);
           }).catch((error) => {
               console.error(`error code ${error.code} > ${error.message}`);
           });
     }
+
 
     return (
         <AuthTemplate>
