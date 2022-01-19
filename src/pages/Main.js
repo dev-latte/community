@@ -17,6 +17,8 @@ const Main = ({ userObj }) => {
     return (
         <>
             로그인했습니다 따란
+            <img src={userObj.photoURL} alt="profile_image"/>
+            {userObj.displayName}
             <Button fullWidth onClick={twitterSignOut}>logout</Button>
         </>
     );

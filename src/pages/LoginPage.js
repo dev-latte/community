@@ -5,7 +5,7 @@ import AuthForm from "../components/auth/AuthForm";
 import AuthTemplate from "../components/auth/AuthTemplate";
 import TabNav from "../components/common/TabNav";
 import { auth, provider } from "../FirebaseInstance";
-import { addMemberInformation } from "../components/api/firebaseAPI";
+import { addMemberInformation, getMemberInformation } from "../components/api/firebaseAPI";
 
 const LoginFormBox = styled.form`
     width: 360px;
@@ -35,13 +35,28 @@ const LoginPage = () => {
         signInWithPopup(auth, provider)
           .then((response) => {
             const user = response.user;
-            const data = {
+            const userData = {
                 displayName: user.displayName,
                 photoURL: user.photoURL,
                 screenName: user.reloadUserInfo.screenName,
-                uid: user.uid
+                uid: user.uid,
+                securityLevel: 3 // default : 최저등급
             }
-            addMemberInformation('memberList', user.uid, data);
+            
+            // 데이터베이스에 유저 정보 추가
+            getMemberInformation('memberList', user.uid)
+                .then(response => {
+                    if(response.securityLevel < 2) {
+                        userData.securityLevel = response.securityLevel;
+                    }
+                })
+                .catch(e => {
+                    console.log(`getMember error ${e}`);
+                })
+                .finally(el => {
+                    addMemberInformation('memberList', user.uid, userData);
+                });
+            
           }).catch((error) => {
               console.error(`error code ${error.code} > ${error.message}`);
           });
