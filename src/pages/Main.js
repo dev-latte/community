@@ -3,6 +3,7 @@ import { signOut } from "firebase/auth";
 import { auth } from "../FirebaseInstance";
 
 import Button from "../components/common/Button";
+import PageTemplate from "../components/common/PageTemplate";
 
 const Main = ({ userObj }) => {
     const twitterSignOut = () => {
@@ -15,12 +16,10 @@ const Main = ({ userObj }) => {
     }
 
     return (
-        <>
-            로그인했습니다 따란
-            <img src={userObj.photoURL} alt="profile_image"/>
-            {userObj.displayName}
+        <PageTemplate>
+            로그인했습니다 따란 
             <Button fullWidth onClick={twitterSignOut}>logout</Button>
-        </>
+        </PageTemplate>
     );
 }
 

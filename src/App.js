@@ -17,7 +17,8 @@ const App = () => {
           displayName: user.displayName,
           screenName: user.reloadUserInfo.screenName,
           photoURL: user.photoURL,
-          uid: user.uid
+          uid: user.uid,
+          securityLevel: user.securityLevel
         });
         setInit(true);
       } else {
