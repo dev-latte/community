@@ -1,16 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-
-const HeaderTemplate = styled.div`
-    position: fixed;
-    width: 100%;
-    height: 45px;
-    background: rgba(0, 0, 0, .8);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border: 1px solid pink;
-`;
+import More from "../../pages/More";
+import HeaderTemplate from "./HeaderTemplate";
 
 const ProfileButtonDiv = styled.div`
     display: flex;
@@ -34,20 +25,17 @@ const ProfileButtonDiv = styled.div`
 
 const Header = ({userObj}) => {
     const [isOpen, setIsOpen] = useState(false);
-
-
-    const onClick = () => {
-        setIsOpen(!isOpen);
-    }
-
     return (
+        <>
+        {isOpen && <More onClick={() => setIsOpen(!isOpen)}/>}
         <HeaderTemplate>
             <div>LOGO</div>
-            <ProfileButtonDiv onClick={onClick} className={isOpen ? "active" : ""}>
+            <ProfileButtonDiv onClick={() => setIsOpen(!isOpen)}>
                 <img src={userObj.photoURL} alt="profile_image"/>
                 <span>{userObj.displayName}</span>
             </ProfileButtonDiv>
         </HeaderTemplate>
+        </>
     );
 }
 

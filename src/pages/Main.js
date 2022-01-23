@@ -17,8 +17,10 @@ const Main = ({ userObj }) => {
 
     return (
         <PageTemplate>
-            로그인했습니다 따란 
-            <Button fullWidth onClick={twitterSignOut}>logout</Button>
+            <div>
+                로그인했습니다 따란 
+                <Button fullWidth onClick={twitterSignOut}>logout</Button>
+            </div>
         </PageTemplate>
     );
 }

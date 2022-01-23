@@ -6,7 +6,8 @@ const TemplateDiv = styled.div`
     width: 100vw;
     height: 100vh;
     position: relative;
-    top: 50px;
+    
+    top: 45px;
 `;
 
 const PageTemplate = ({children}) => {
