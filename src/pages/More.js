@@ -27,6 +27,10 @@ const More = ({onClick}) => {
                 <BackButtonDiv onClick={onClick}>
                     back
                 </BackButtonDiv>
+                <div>
+                    
+
+                </div>
             </HeaderTemplate>
         </MoreTemplate>
     );

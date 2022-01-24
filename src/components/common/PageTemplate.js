@@ -7,6 +7,7 @@ const TemplateDiv = styled.div`
     height: 100vh;
     position: relative;
     
+    ${'' /* 임시임 */}
     top: 45px;
 `;
 
