@@ -17,8 +17,12 @@ react
 2. styled-components (npm i styled-components)  
 3. react-icons (npm i react-icons)  
 4. react-router-dom (npm i react-router-dom)  
-5. react-redux (npm i react-redux)
-6. @redux-devtools/extension (npm i @redux-devtools/extension)
+5. redux (npm i redux)
+6. react-redux (npm i react-redux)
+7. @redux-devtools/extension (npm i @redux-devtools/extension)
+8. persist-redux (npm i redux-persist)
+9. redux-logger (npm i redux-logger)
+
 
 Database & Twitter Authentication
 - firebase (npm install firebase)

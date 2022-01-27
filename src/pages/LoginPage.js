@@ -6,6 +6,8 @@ import AuthTemplate from "../components/auth/AuthTemplate";
 import TabNav from "../components/common/TabNav";
 import { auth, provider } from "../FirebaseInstance";
 import { addMemberInformation, getMemberInformation } from "../components/api/firebaseAPI";
+import { useDispatch } from "react-redux";
+import { addUser } from "../redux/user/action";
 
 const LoginFormBox = styled.form`
     width: 360px;
@@ -24,6 +26,7 @@ const LoginFormBox = styled.form`
 
 const LoginPage = () => {
     const [member, setMember] = useState(true); // true - member , false - guest
+    const dispatch = useDispatch();
 
     const onClickNav = (e) => {
         e.preventDefault();
@@ -55,8 +58,8 @@ const LoginPage = () => {
                 })
                 .finally(el => {
                     addMemberInformation('memberList', user.uid, userData);
+                    dispatch(addUser(userData));
                 });
-            
           }).catch((error) => {
               console.error(`error code ${error.code} > ${error.message}`);
           });

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 import More from "../../pages/More";
 import HeaderTemplate from "./HeaderTemplate";
@@ -23,8 +24,10 @@ const ProfileButtonDiv = styled.div`
     }
 `;
 
-const Header = ({userObj}) => {
+const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const userObj = useSelector((state) => state.data.user);
+
     return (
         <>
         {isOpen && <More onClick={() => setIsOpen(!isOpen)}/>}

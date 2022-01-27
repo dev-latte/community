@@ -38,14 +38,6 @@ const App = () => {
         : <LoginPage/>
       }
     </>
-
-
-    // <Routes>
-    //   { isTwitterLogin
-    //     ? <Main></Main>
-    //     : <Route path="/" element={ <LoginPage onClickLogin={onClickLogin}/> } />
-    //   }
-    // </Routes>
   );
 }
 

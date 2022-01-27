@@ -4,11 +4,15 @@ import { auth } from "../FirebaseInstance";
 
 import Button from "../components/common/Button";
 import PageTemplate from "../components/common/PageTemplate";
+import { useDispatch } from "react-redux";
+import { removeUser } from "../redux/user/action";
 
 const Main = ({ userObj }) => {
+    const dispatch = useDispatch();
     const twitterSignOut = () => {
         signOut(auth).then(() => {
             console.log("로그아웃");
+            dispatch(removeUser());
             window.location.replace("/");
           }).catch((error) => {
               console.error(`signOut error ${error}`);
