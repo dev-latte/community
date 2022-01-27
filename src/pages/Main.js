@@ -7,7 +7,7 @@ import PageTemplate from "../components/common/PageTemplate";
 import { useDispatch } from "react-redux";
 import { removeUser } from "../redux/user/action";
 
-const Main = ({ userObj }) => {
+const Main = () => {
     const dispatch = useDispatch();
     const twitterSignOut = () => {
         signOut(auth).then(() => {

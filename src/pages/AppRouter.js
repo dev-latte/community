@@ -2,17 +2,16 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Header from "../components/header/Header";
 import Main from "./Main";
-import More from "./More";
 
-const AppRouter = ({userObj, isLoggedIn}) => {
+const AppRouter = ({isLoggedIn}) => {
     console.log(isLoggedIn);
     return (
         <>
         { isLoggedIn &&
             <>
-            <Header userObj={userObj}/>
+            <Header/>
             <Routes>
-                    <Route path="/" element={<Main userObj={userObj}/>}/>
+                    <Route path="/" element={<Main />}/>
             </Routes>
             </>  
         }
