@@ -1,16 +1,17 @@
 import React from "react";
 import styled from "styled-components";
+import PageTemplate from "../components/common/PageTemplate";
 import HeaderTemplate from "../components/header/HeaderTemplate";
 
 const MoreTemplate = styled.div`
+    z-index: 100;
     width: 100%;
     height: 100%;
     background: #000;
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 99;
-    color: #fff;
+    color:#fff;
 `;
 
 const BackButtonDiv = styled.div`
@@ -20,18 +21,25 @@ const BackButtonDiv = styled.div`
     cursor: pointer;
 `;
 
-const More = ({onClick}) => {
+const MoreContentDiv = styled.div`
+    height: 100%;
+    width: 100%;
+    border: 1px solid white;
+    display: flex;
+    justify-content: center;
+`;
+
+const More = ({children, onClick}) => {
     return (
         <MoreTemplate>
             <HeaderTemplate>
                 <BackButtonDiv onClick={onClick}>
                     back
                 </BackButtonDiv>
-                <div>
-                    
-
-                </div>
             </HeaderTemplate>
+            <MoreContentDiv>
+                { children }
+            </MoreContentDiv>
         </MoreTemplate>
     );
 }

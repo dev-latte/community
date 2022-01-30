@@ -2,13 +2,10 @@ import React from "react";
 import styled from "styled-components";
 
 const TemplateDiv = styled.div`
-    border: 1px solid black;
-    width: 100vw;
+    border: 1px solid blue;
+    width: 100%;
     height: 100vh;
     position: relative;
-    
-    ${'' /* 임시임 */}
-    top: 45px;
 `;
 
 const PageTemplate = ({children}) => {

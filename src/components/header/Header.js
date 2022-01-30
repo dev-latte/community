@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
+import UserInformation from "../../contents/userInfo/UserInformation";
 import More from "../../pages/More";
 import HeaderTemplate from "./HeaderTemplate";
 
@@ -30,7 +31,13 @@ const Header = () => {
 
     return (
         <>
-        {isOpen && <More onClick={() => setIsOpen(!isOpen)}/>}
+        {isOpen && 
+            <More onClick={() => setIsOpen(!isOpen)}>
+                <UserInformation>
+                    
+                </UserInformation>
+            </More>
+        }
         <HeaderTemplate>
             <div>LOGO</div>
             <ProfileButtonDiv onClick={() => setIsOpen(!isOpen)}>

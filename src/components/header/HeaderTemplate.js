@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const HeaderTemplateDiv = styled.div`
+    z-index: 99;
     position: fixed;
     width: 100%;
     height: 45px;
