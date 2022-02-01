@@ -1,4 +1,4 @@
-import { ADD_STATUS, INIT_STATUS } from "./type";
+import { ADD_STATUS, INIT_STATUS, REMOVE_STATUS } from "./type";
 
 export const initialStatus = {
     lv: 1,
@@ -25,6 +25,11 @@ const statusReducer = (state = {}, action) => {
             return {
                 ...state,
                 status: initialStatus
+            }
+        case REMOVE_STATUS:
+            return {
+                ...state,
+                status: {}
             }
         default:
             return state

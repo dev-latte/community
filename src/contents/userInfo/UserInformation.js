@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import styled from "styled-components";
 import Button from "../../components/common/Button";
 import { auth } from "../../FirebaseInstance";
+import { removeStatus } from "../../redux/status/action";
 import { removeUser } from "../../redux/user/action";
 import UserStatus from "./UserStatus";
 
@@ -30,8 +31,8 @@ const UserInformation = () => {
     // 로그아웃
     const twitterSignOut = () => {
         signOut(auth).then(() => {
-            console.log("로그아웃");
             dispatch(removeUser());
+            dispatch(removeStatus());
             window.location.replace("/");
           }).catch((error) => {
               console.error(`signOut error ${error}`);
