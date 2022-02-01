@@ -6,6 +6,7 @@ import styled from "styled-components";
 import Button from "../../components/common/Button";
 import { auth } from "../../FirebaseInstance";
 import { removeUser } from "../../redux/user/action";
+import UserStatus from "./UserStatus";
 
 const UserInfoTemplate = styled.div`
     border: 1px solid #222;
@@ -24,7 +25,7 @@ const UserImage = styled.img`
 
 const UserInformation = () => {
     const dispatch = useDispatch();
-    const userObj = useSelector((state) => state.data.user);
+    const userObj = useSelector((state) => state.user.user);
     
     // 로그아웃
     const twitterSignOut = () => {
@@ -40,6 +41,7 @@ const UserInformation = () => {
     return (
         <UserInfoTemplate>
             <UserImage src={(userObj.photoURL).replaceAll("_normal", "")} alt={`${userObj.displayName} 인장 이미지`}/>
+            <UserStatus></UserStatus>
             <Button fullWidth onClick={twitterSignOut}>logout</Button>
         </UserInfoTemplate>
     );

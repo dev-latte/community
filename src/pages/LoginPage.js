@@ -5,9 +5,13 @@ import AuthForm from "../components/auth/AuthForm";
 import AuthTemplate from "../components/auth/AuthTemplate";
 import TabNav from "../components/common/TabNav";
 import { auth, provider } from "../FirebaseInstance";
-import { addMemberInformation, getMemberInformation } from "../components/api/firebaseAPI";
+import { addData, getData } from "../components/api/firebaseAPI";
 import { useDispatch } from "react-redux";
 import { addUser } from "../redux/user/action";
+import { nvl } from "../components/validation/common";
+import { addStatus } from "../redux/status/action";
+import { initialStatus } from "../redux/status/reducer";
+import { initStatus } from "../redux/status/action";
 
 const LoginFormBox = styled.form`
     width: 360px;
@@ -47,7 +51,7 @@ const LoginPage = () => {
             }
             
             // 데이터베이스에 유저 정보 추가
-            getMemberInformation('memberList', user.uid)
+            getData('memberList', user.uid)
                 .then(response => {
                     if(response.securityLevel < 2) {
                         userData.securityLevel = response.securityLevel;
@@ -57,8 +61,23 @@ const LoginPage = () => {
                     console.log(`getMember error ${e}`);
                 })
                 .finally(el => {
-                    addMemberInformation('memberList', user.uid, userData);
+                    addData('memberList', user.uid, userData);
                     dispatch(addUser(userData));
+                });
+
+            // 데이터베이스에 유저 스테이터스 정보 추가
+            getData('characterStatus', user.uid)
+                .then(response => {
+                    console.log(response);
+                    if(nvl(response)) {
+                        addData('characterStatus', user.uid, initialStatus);
+                        dispatch(initStatus());
+                        return;
+                    }
+                    dispatch(addStatus(response));
+                })
+                .catch(e => {
+                    console.error(`userStatus > ${e}`);
                 });
           }).catch((error) => {
               console.error(`error code ${error.code} > ${error.message}`);

@@ -27,7 +27,7 @@ const ProfileButtonDiv = styled.div`
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const userObj = useSelector((state) => state.data.user);
+    const userObj = useSelector((state) => state.user.user);
 
     return (
         <>
