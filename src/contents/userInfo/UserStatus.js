@@ -1,7 +1,7 @@
-import React, { useLayoutEffect, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
-import { addData, snapshotData } from "../../components/api/firebaseAPI";
+import { addData } from "../../components/api/firebaseAPI";
 import { addStatus } from "../../redux/status/action";
 
 const UserStatusTemplate = styled.div`
@@ -27,10 +27,6 @@ const UserStatus = () => {
     const userStatus = useSelector(state => state.status.status);
     const [status, setStatus] = useState(userStatus);
     const dispatch = useDispatch();
-
-    useLayoutEffect(() => {
-        snapshotData('characterStatus', userObj.uid);
-    }, []);
 
     const onClickStatUp = (e) => {
         const target = e.target.dataset.status;

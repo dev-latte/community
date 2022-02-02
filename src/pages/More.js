@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import PageTemplate from "../components/common/PageTemplate";
 import HeaderTemplate from "../components/header/HeaderTemplate";
 
 const MoreTemplate = styled.div`
