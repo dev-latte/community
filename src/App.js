@@ -27,7 +27,7 @@ const App = () => {
           if(!nvl(status)) {
             // level up statement
             if(status.lv * process.env.REACT_APP_LEVEL_UP_EXP <= status.exp) {
-              status = {...status, lv:status['lv']+1, exp:0};
+              status = {...status, lv:status['lv']+1, exp:0, sp:3};
               addData('characterStatus', user.uid, status);
             }
             dispatch(addStatus(status));

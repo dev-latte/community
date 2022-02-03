@@ -34,7 +34,6 @@ const Header = () => {
         {isOpen && 
             <More onClick={() => setIsOpen(!isOpen)}>
                 <UserInformation>
-                    
                 </UserInformation>
             </More>
         }

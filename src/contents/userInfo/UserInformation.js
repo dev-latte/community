@@ -42,7 +42,7 @@ const UserInformation = () => {
     return (
         <UserInfoTemplate>
             <UserImage src={(userObj.photoURL).replaceAll("_normal", "")} alt={`${userObj.displayName} 인장 이미지`}/>
-            <UserStatus></UserStatus>
+            <UserStatus/>
             <Button fullWidth onClick={twitterSignOut}>logout</Button>
         </UserInfoTemplate>
     );
