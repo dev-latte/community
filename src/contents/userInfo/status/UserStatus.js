@@ -1,8 +1,8 @@
 import React, { useLayoutEffect, useState } from "react";
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
-import { addData, snapshotData } from "../../components/api/firebaseAPI";
-import { addStatus } from "../../redux/status/action";
+import { addData, snapshotData } from "../../../components/api/firebaseAPI";
+import { addStatus } from "../../../redux/status/action";
 
 const UserStatusTemplate = styled.div`
     border: 1px solid #fff;

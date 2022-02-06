@@ -1,5 +1,6 @@
 import { signOut } from "firebase/auth";
 import React from "react";
+import { useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
@@ -7,7 +8,8 @@ import Button from "../../components/common/Button";
 import { auth } from "../../FirebaseInstance";
 import { removeStatus } from "../../redux/status/action";
 import { removeUser } from "../../redux/user/action";
-import UserStatus from "./UserStatus";
+import UserInventory from "../userInventory/UserInventory";
+import UserStatus from "./status/UserStatus";
 
 const UserInfoTemplate = styled.div`
     border: 1px solid #222;
@@ -25,6 +27,7 @@ const UserImage = styled.img`
 `;
 
 const UserInformation = () => {
+    const [openInventory, setOpenInventory] = useState(false);
     const dispatch = useDispatch();
     const userObj = useSelector((state) => state.user.user);
     
@@ -41,9 +44,19 @@ const UserInformation = () => {
 
     return (
         <UserInfoTemplate>
-            <UserImage src={(userObj.photoURL).replaceAll("_normal", "")} alt={`${userObj.displayName} 인장 이미지`}/>
-            <UserStatus/>
-            <Button fullWidth onClick={twitterSignOut}>logout</Button>
+            {openInventory
+                ?
+                    <UserInventory openInventory={openInventory} setOpenInventory={setOpenInventory}/>
+                :
+                <>
+                    <UserImage src={(userObj.photoURL).replaceAll("_normal", "")} alt={`${userObj.displayName} 인장 이미지`}/>
+                    <UserStatus/>
+                    <Button fullWidth onClick={e => setOpenInventory(!openInventory)}>User Inventory</Button>
+                    <Button fullWidth onClick={twitterSignOut}>logout</Button>
+                </>
+
+            }
+
         </UserInfoTemplate>
     );
 }
