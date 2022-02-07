@@ -5,7 +5,7 @@ const HeaderTemplateDiv = styled.div`
     z-index: 99;
     position: fixed;
     width: 100%;
-    height: 45px;
+    height: 50px;
     background: rgba(0, 0, 0, .8);
     display: flex;
     align-items: center;
